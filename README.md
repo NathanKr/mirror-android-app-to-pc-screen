@@ -60,6 +60,15 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 <h2>Technologies Used</h2>
 ....
 
+<h2>Important concepts</h2>
+
+<h3>adb - android debug bridge</h3>
+
+Schema
+
+<img src='./figs/adb-schema.png' alt='adb schema'>
+
+The ADB Client on the Host Machine : is the command-line program (adb) or a software interface (like in Android Studio) that sends debugging and operational commands to the ADB Server.
 
 <h2>Design 1 - Scrcpy</h2>
 
@@ -96,16 +105,20 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 
 
 
-<h2>Code Structure</h2>
-....
 
 <h2>Demo</h2>
 ....
 
 <h2>Points of Interest</h2>
 <ul>
-    <li>...</li>
+    <li>it uses debug mode - it use adb (Android Debug Bridge)</li>
    
+</ul>
+
+<h2>open issues</h2>
+<ul>
+    <li>should i use cable or wifi</li>
+   <li>do i need developer account</li>
 </ul>
 
 <h2>References</h2>
