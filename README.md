@@ -64,7 +64,7 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
   <li>Find <strong>Build number</strong> (or Software version) and tap it 7 times until you see “You are now a developer”.</li>
   <li>Return to <strong>Settings &gt; System &gt; Developer options</strong> (or search “Developer options”).</li>
   <li>Enable <strong>USB debugging</strong>.
-    <div class="note">If prompted when connecting later, accept the computer’s RSA key on the phone (check “Always allow from this computer”).</div>
+    <div>If prompted when connecting later, accept the computer’s RSA key on the phone (check “Always allow from this computer”).</div>
   </li>
 </ol>
 
@@ -74,30 +74,17 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
   <li>Connect your phone via USB cable (use a data cable, not charge-only).</li>
   <li>Open a Command Prompt or PowerShell in that folder and run:
     <pre>.\scrcpy.exe</pre>
-    <div class="tip">Useful options:
-      <ul>
-        <li><code>--fullscreen</code> — start in fullscreen</li>
-        <li><code>--max-size 1080</code> — limit mirrored resolution (helps performance)</li>
-        <li><code>--bit-rate 8M</code> — adjust video bitrate</li>
-      </ul>
-    </div>
   </li>
 </ol>
 
-<h3>3. Optional: Add Audio with sndcpy</h3>
-<ol>
-  <li>Download <a href="https://github.com/rom1v/sndcpy" target="_blank">sndcpy</a> and extract it.</li>
-  <li>Install a Java runtime (if not already installed).</li>
-  <li>Run <code>sndcpy.cmd</code> while your phone is connected and authorized — it will forward sound to the PC.</li>
-</ol>
 
-<h3>4. Workflow to start mirroring + audio</h3>
+<h3>3. Workflow to start mirroring + audio</h3>
 <ol>
   <li>Connect phone to PC with USB cable.</li>
   <li>Accept the “Allow USB debugging?” prompt on your phone.</li>
   <li>(Optional) Start audio forward: <code>sndcpy</code>.</li>
   <li>Start screen mirror:
-    <pre>scrcpy --max-size 1080 --bit-rate 8M --fullscreen</pre>
+    <pre>scrcpy</pre>
   </li>
 </ol>
 
