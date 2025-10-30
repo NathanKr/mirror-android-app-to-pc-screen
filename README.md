@@ -53,8 +53,6 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
    
 </ul>
 
-<h2>Installation</h2>
-
 
 <h2>Installation</h2>
 
@@ -78,7 +76,13 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 </ol>
 
 
-<h3>3. Workflow to start mirroring + audio</h3>
+
+
+
+
+<h2>Usage</h2>
+
+<h3>Workflow to start mirroring + audio</h3>
 <ol>
   <li>Connect phone to PC with USB cable.</li>
   <li>Accept the “Allow USB debugging?” prompt on your phone.</li>
@@ -88,7 +92,9 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
   </li>
 </ol>
 
-<h2>Troubleshooting</h2>
+
+
+<h3>Troubleshooting</h3>
 <ul>
   <li><strong>No device detected?</strong> Use a proper data cable and re-enable USB debugging.</li>
   <li><strong>Black screen or crash?</strong> Run <code>scrcpy -V debug</code> to see logs.</li>
@@ -96,23 +102,13 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
   <li><strong>No audio?</strong> Make sure sndcpy is running and Java is installed.</li>
 </ul>
 
-<h2>Notes & Tips</h2>
+<h3>Notes & Tips</h3>
 <ul>
   <li>Scrcpy already includes <strong>adb</strong> — no separate installation needed.</li>
   <li>You don’t need a developer account, just enable Developer Options and USB Debugging.</li>
   <li>Works on both Windows 10 and 11.</li>
   <li>Use <code>Ctrl + F</code> for fullscreen, <code>Ctrl + Q</code> to quit.</li>
 </ul>
-
-<pre>
-# Quick start example
-scrcpy --fullscreen --max-size 1080 --bit-rate 8M
-</pre>
-
-
-
-<h2>Usage</h2>
-....
 
 <h2>Technologies Used</h2>
 ....
@@ -164,13 +160,16 @@ The ADB Client on the Host Machine : is the command-line program (adb) or a soft
 </section>
 
 <h2>Demo</h2>
-....
 
-<h2>Points of Interest</h2>
-<ul>
-    <li>it uses debug mode - it use adb (Android Debug Bridge)</li>
-   
-</ul>
+Following image show what happen after you invoke scrcpy from the command line - you see the android device on the pc screen. 
+make sure usb debugging is enabled on the android phone !!!
+<img src='./figs/run-scrcpy.png'/>
+
+
+Once you click the app partner tv + and start watching it rotate and the pc screen will be occupied at its full
+
+
+
 
 <h2>open issues</h2>
 <ul>
