@@ -49,9 +49,11 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 
 <h2>Key Takeaways</h2>
 <ul>
-    <li>...</li>
-   
+  <li>
+    <strong>Usage:</strong> Enable <em>USB debugging</em> on your Android phone, connect it to the PC with a data cable, and run <code>scrcpy</code> — your phone’s screen will appear live on the PC.
+  </li>
 </ul>
+
 
 
 <h2>Installation</h2>
@@ -161,14 +163,18 @@ The ADB Client on the Host Machine : is the command-line program (adb) or a soft
 
 <h2>Demo</h2>
 
+<h3>pc - phone connection</h3>
+
 Following image show what happen after you invoke scrcpy from the command line - you see the android device on the pc screen. 
 make sure usb debugging is enabled on the android phone !!!
 <img src='./figs/run-scrcpy.png'/>
 
 
-Once you click the app partner tv + and start watching it rotate and the pc screen will be occupied at its full
+Once you click the app partner tv + and start watching, it rotate and the pc screen will be occupied at its full
 
+<h3>connected devices</h3>
 
+<img src='./figs/devices.png'/>
 
 
 <h2>open issues</h2>
