@@ -50,7 +50,10 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 <h2>Key Takeaways</h2>
 <ul>
   <li>
-    <strong>Usage:</strong> Enable <em>USB debugging</em> on your Android phone, connect it to the PC with a data cable, and run <code>scrcpy</code> — your phone’s screen will appear live on the PC.
+    <strong>Usage:</strong> Enable <em>USB debugging</em> on your Android phone, connect it to the PC with a proper data cable, and run <code>scrcpy</code> — your phone’s screen will appear live on the PC.
+  </li>
+  <li>
+    <strong>Resolution:</strong> Check your phone’s screen resolution — it determines the maximum quality of the mirrored display on your PC.
   </li>
 </ul>
 
