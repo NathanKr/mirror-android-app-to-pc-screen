@@ -174,6 +174,8 @@ Once you click the app partner tv + and start watching, it rotate and the pc scr
 
 <h3>connected devices</h3>
 
+THe tablet has 15% better resolution but no audio 
+
 <img src='./figs/devices.png'/>
 
 
