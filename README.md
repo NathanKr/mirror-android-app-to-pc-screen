@@ -18,7 +18,7 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 <li>partner no longer support web view</li>
 <li>my pc is connected via router it is not connected to the tv</li>
 <li>my pc run windows 10 i might be willing to upgrade to windows 11</li>
-<li><strong>my pc setup</strong></li>
+<li><strong>Pc setup</strong></li>
     <ul>
         <li>Device Name: DESKTOP-P36PBLU</li>
         <li>Processor: 12th Gen Intel(R) Core(TM) i3-12100F @ 3.30 GHz</li>
@@ -40,6 +40,15 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
     <li>Installed on: 09/03/2021</li>
     <li>OS Build: 19045.6456</li>
 </ul>
+<li>My Mobile phone</li>
+<ul>
+<li>The Realme C21</li>
+<li>uses a Micro-USB charging port and is designed for 10W (5V/2A) charging.</li>
+</ul>
+<li>Sarit tablet</li>
+<ul>
+<li></li>
+</ul>
 </ul>
 
 
@@ -50,7 +59,90 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 </ul>
 
 <h2>Installation</h2>
-....
+
+  <h3>1. Enable Developer Options & USB Debugging (on Realme C21)</h3>
+
+
+  <h3>2. Install Android platform-tools (adb)</h3>
+  <ol>
+    <li>Download the <em>platform-tools</em> (Android SDK Platform Tools) for Windows and extract the ZIP to a folder, e.g. <code>C:\tools\platform-tools</code>.</li>
+    <li>Add that folder to your Windows PATH so you can run <code>adb</code> from any CMD/PowerShell window.
+      <pre>// example (PowerShell) to test once extracted
+cd C:\tools\platform-tools
+.\adb.exe version
+</pre>
+    </li>
+    <li>To verify with your phone connected by USB:
+      <pre>adb devices
+# you should see a device id and the word 'device'
+</pre>
+    </li>
+  </ol>
+
+
+  <h3>3. Install scrcpy (Windows)</h3>
+  <ol>
+    <li>Download the scrcpy Windows prebuilt ZIP and extract to a folder, e.g. <code>C:\tools\scrcpy</code>.</li>
+    <li>Open a PowerShell or Command Prompt in that folder and run:
+      <pre>.\scrcpy.exe</pre>
+      <div class="tip">Common useful flags:
+        <ul>
+          <li><code>--fullscreen</code> &mdash; start fullscreen</li>
+          <li><code>--max-size 1080</code> &mdash; limit mirrored resolution (helps bandwidth)</li>
+          <li><code>--bit-rate 8M</code> &mdash; raise/lower video bitrate</li>
+        </ul>
+      </div>
+    </li>
+  </ol>
+
+
+  <h3>4. Optional: Install sndcpy (for audio on PC)</h3>
+  <ol>
+    <li>Download the sndcpy package (a small Java wrapper) and extract it to a folder.</li>
+    <li>Ensure you have a Java runtime installed (OpenJDK or Oracle JRE) or install it if missing.</li>
+    <li>Run the provided <code>sndcpy.cmd</code> or <code>java -jar sndcpy.jar</code> (depending on package) while phone is connected and adb authorized. This forwards audio to the PC using a temporary local ADB port and a small Android helper app that runs without requiring installation.
+    </li>
+    <li>After starting sndcpy, open your PC's audio player that listens on the forwarded port (sndcpy includes instructions). Some builds automatically open the audio stream in your default media player.
+    </li>
+  </ol>
+
+
+  <h3>5. Workflow to start mirroring + audio</h3>
+  <ol>
+    <li>Connect phone to PC with USB data cable.</li>
+    <li>Confirm device visible: <code>adb devices</code>.</li>
+    <li>Start audio forward (optional): <code>sndcpy</code> (follow package instructions).</li>
+    <li>Start screen mirror: <code>scrcpy --max-size 1080 --bit-rate 8M --fullscreen</code>.</li>
+  </ol>
+
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li><strong>No device shown by adb?</strong> Reconnect cable, confirm USB mode on phone is not “Charge only”, re-enable USB debugging, and accept the RSA prompt on phone.</li>
+    <li><strong>Scrcpy fails to start:</strong> Run <code>.\scrcpy.exe -V debug</code> to see logs. Make sure adb is reachable and the scrcpy folder contains the EXEs.</li>
+    <li><strong>Poor performance:</strong> Use the phone’s USB 2.0/3.0 port with a good cable; reduce <code>--max-size</code> and lower <code>--bit-rate</code>.</li>
+    <li><strong>No audio on PC:</strong> Ensure sndcpy is running and that you have Java installed. Some media players may not auto-open the forwarded stream—open the stream URL or use the included helper script.</li>
+  </ul>
+
+
+  <h2>Notes & tips</h2>
+  <ul>
+    <li>If you plan to record the mirrored screen, run scrcpy with the <code>--record file.mp4</code> option.</li>
+    <li>Scrcpy mirrors whatever appears on the phone screen; DRM-protected streams may be blocked or blacked out by the app.</li>
+    <li>If you ever upgrade to Windows 11, the same steps apply. Upgrading is optional and not required to run scrcpy/sndcpy.</li>
+  </ul>
+
+
+  <h2>Example quick commands</h2>
+  <pre>adb devices
+// start audio (if using sndcpy)
+./sndcpy
+// start screen mirroring (example)
+./scrcpy --max-size 1080 --bit-rate 8M --fullscreen
+</pre>
+
+
+  <p style="margin-top:24px">Need this as a downloadable HTML file or a version with exact download links and checksums? I can add direct link targets and a small bat file to automate startup.</p>
 
 
 <h2>Usage</h2>
@@ -61,6 +153,12 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 ....
 
 <h2>Important concepts</h2>
+
+<h3>scrpy</h3>
+
+Schema
+
+
 
 <h3>adb - android debug bridge</h3>
 
@@ -117,8 +215,9 @@ The ADB Client on the Host Machine : is the command-line program (adb) or a soft
 
 <h2>open issues</h2>
 <ul>
-    <li>should i use cable or wifi</li>
-   <li>do i need developer account</li>
+    <li>should i use cable or wifi : You should use a USB cable for the best experience, as it provides extremely low latency and a more stable connection, which is ideal for watching live sports. check <img src='./figs/cable.png'/> - exist in KSP near home</li>
+    <li>should i use special cable : You should use any standard USB data cable (not a cheap "charge-only" cable) that supports the full file-sharing and adb data transfer required for debugging.</li>
+   <li>do i need developer account : No, you do not need a developer account, but you must enable the Developer Options and USB Debugging settings on your Android phone.</li>
 </ul>
 
 <h2>References</h2>
