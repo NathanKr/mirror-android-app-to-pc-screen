@@ -1,15 +1,11 @@
 <h1>Project Name</h1>
 ....
 
-
-
 <h2>Project Description</h2>
 ....
 
-
-
 <h2>Motivation</h2>
-I want to watch partner tv on my new 27 inch pc so how to do it. 
+I want to watch partner tv on my new 27 inch pc so how to do it.
 
 <h2>Current setup</h2>
 <ul>
@@ -51,7 +47,6 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 </ul>
 </ul>
 
-
 <h2>Key Takeaways</h2>
 <ul>
     <li>...</li>
@@ -61,7 +56,14 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 <h2>Installation</h2>
 
   <h3>1. Enable Developer Options & USB Debugging (on Realme C21)</h3>
-
+<ol>
+<li>Open <strong>Settings &gt; About phone</strong>.</li>
+<li>Find <strong>Build number</strong> (or Software version) and tap it 7 times until you see “You are now a developer”.</li>
+<li>Return to Settings &gt; System &gt; Developer options (or search “Developer options”).</li>
+<li>Enable <strong>USB debugging</strong>.
+<div class="note">If prompted when connecting later, accept the computer's RSA key on the phone (check &ldquo;Always allow from this computer&rdquo; if you trust it).</div>
+</li>
+</ol>
 
   <h3>2. Install Android platform-tools (adb)</h3>
   <ol>
@@ -79,7 +81,6 @@ cd C:\tools\platform-tools
     </li>
   </ol>
 
-
   <h3>3. Install scrcpy (Windows)</h3>
   <ol>
     <li>Download the scrcpy Windows prebuilt ZIP and extract to a folder, e.g. <code>C:\tools\scrcpy</code>.</li>
@@ -95,7 +96,6 @@ cd C:\tools\platform-tools
     </li>
   </ol>
 
-
   <h3>4. Optional: Install sndcpy (for audio on PC)</h3>
   <ol>
     <li>Download the sndcpy package (a small Java wrapper) and extract it to a folder.</li>
@@ -106,7 +106,6 @@ cd C:\tools\platform-tools
     </li>
   </ol>
 
-
   <h3>5. Workflow to start mirroring + audio</h3>
   <ol>
     <li>Connect phone to PC with USB data cable.</li>
@@ -114,7 +113,6 @@ cd C:\tools\platform-tools
     <li>Start audio forward (optional): <code>sndcpy</code> (follow package instructions).</li>
     <li>Start screen mirror: <code>scrcpy --max-size 1080 --bit-rate 8M --fullscreen</code>.</li>
   </ol>
-
 
   <h2>Troubleshooting</h2>
   <ul>
@@ -124,14 +122,12 @@ cd C:\tools\platform-tools
     <li><strong>No audio on PC:</strong> Ensure sndcpy is running and that you have Java installed. Some media players may not auto-open the forwarded stream—open the stream URL or use the included helper script.</li>
   </ul>
 
-
   <h2>Notes & tips</h2>
   <ul>
     <li>If you plan to record the mirrored screen, run scrcpy with the <code>--record file.mp4</code> option.</li>
     <li>Scrcpy mirrors whatever appears on the phone screen; DRM-protected streams may be blocked or blacked out by the app.</li>
     <li>If you ever upgrade to Windows 11, the same steps apply. Upgrading is optional and not required to run scrcpy/sndcpy.</li>
   </ul>
-
 
   <h2>Example quick commands</h2>
   <pre>adb devices
@@ -141,13 +137,10 @@ cd C:\tools\platform-tools
 ./scrcpy --max-size 1080 --bit-rate 8M --fullscreen
 </pre>
 
-
   <p style="margin-top:24px">Need this as a downloadable HTML file or a version with exact download links and checksums? I can add direct link targets and a small bat file to automate startup.</p>
-
 
 <h2>Usage</h2>
 ....
-
 
 <h2>Technologies Used</h2>
 ....
@@ -157,8 +150,6 @@ cd C:\tools\platform-tools
 <h3>scrpy</h3>
 
 Schema
-
-
 
 <h3>adb - android debug bridge</h3>
 
@@ -200,10 +191,6 @@ The ADB Client on the Host Machine : is the command-line program (adb) or a soft
     <p>Yes — your basketball game will look great on PC with Scrcpy. It’s free, smooth, and has almost no delay — perfect for watching or even recording your gameplay.</p>
 </section>
 
-
-
-
-
 <h2>Demo</h2>
 ....
 
@@ -225,4 +212,3 @@ The ADB Client on the Host Machine : is the command-line program (adb) or a soft
     <li>...</li>
    
 </ul>
-
