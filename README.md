@@ -55,89 +55,74 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 
 <h2>Installation</h2>
 
-  <h3>1. Enable Developer Options & USB Debugging (on Realme C21)</h3>
+
+<h2>Installation</h2>
+
+<h3>1. Enable Developer Options & USB Debugging (on Realme C21)</h3>
 <ol>
-<li>Open <strong>Settings &gt; About phone</strong>.</li>
-<li>Find <strong>Build number</strong> (or Software version) and tap it 7 times until you see “You are now a developer”.</li>
-<li>Return to Settings &gt; System &gt; Developer options (or search “Developer options”).</li>
-<li>Enable <strong>USB debugging</strong>.
-<div class="note">If prompted when connecting later, accept the computer's RSA key on the phone (check &ldquo;Always allow from this computer&rdquo; if you trust it).</div>
-</li>
+  <li>Open <strong>Settings &gt; About phone</strong>.</li>
+  <li>Find <strong>Build number</strong> (or Software version) and tap it 7 times until you see “You are now a developer”.</li>
+  <li>Return to <strong>Settings &gt; System &gt; Developer options</strong> (or search “Developer options”).</li>
+  <li>Enable <strong>USB debugging</strong>.
+    <div class="note">If prompted when connecting later, accept the computer’s RSA key on the phone (check “Always allow from this computer”).</div>
+  </li>
 </ol>
 
-  <h3>2. Install Android platform-tools (adb)</h3>
-  <ol>
-    <li>Download the <em>platform-tools</em> (Android SDK Platform Tools) for Windows and extract the ZIP to a folder, e.g. <code>C:\tools\platform-tools</code>.</li>
-    <li>Add that folder to your Windows PATH so you can run <code>adb</code> from any CMD/PowerShell window.
-      <pre>// example (PowerShell) to test once extracted
-cd C:\tools\platform-tools
-.\adb.exe version
-</pre>
-    </li>
-    <li>To verify with your phone connected by USB:
-      <pre>adb devices
-# you should see a device id and the word 'device'
-</pre>
-    </li>
-  </ol>
+<h3>2. Install Scrcpy (Windows)</h3>
+<ol>
+  <li>Download the <a href="https://github.com/Genymobile/scrcpy/releases" target="_blank">Scrcpy Windows ZIP</a> and extract it to a folder, e.g. <code>C:\tools\scrcpy</code>.</li>
+  <li>Connect your phone via USB cable (use a data cable, not charge-only).</li>
+  <li>Open a Command Prompt or PowerShell in that folder and run:
+    <pre>.\scrcpy.exe</pre>
+    <div class="tip">Useful options:
+      <ul>
+        <li><code>--fullscreen</code> — start in fullscreen</li>
+        <li><code>--max-size 1080</code> — limit mirrored resolution (helps performance)</li>
+        <li><code>--bit-rate 8M</code> — adjust video bitrate</li>
+      </ul>
+    </div>
+  </li>
+</ol>
 
-  <h3>3. Install scrcpy (Windows)</h3>
-  <ol>
-    <li>Download the scrcpy Windows prebuilt ZIP and extract to a folder, e.g. <code>C:\tools\scrcpy</code>.</li>
-    <li>Open a PowerShell or Command Prompt in that folder and run:
-      <pre>.\scrcpy.exe</pre>
-      <div class="tip">Common useful flags:
-        <ul>
-          <li><code>--fullscreen</code> &mdash; start fullscreen</li>
-          <li><code>--max-size 1080</code> &mdash; limit mirrored resolution (helps bandwidth)</li>
-          <li><code>--bit-rate 8M</code> &mdash; raise/lower video bitrate</li>
-        </ul>
-      </div>
-    </li>
-  </ol>
+<h3>3. Optional: Add Audio with sndcpy</h3>
+<ol>
+  <li>Download <a href="https://github.com/rom1v/sndcpy" target="_blank">sndcpy</a> and extract it.</li>
+  <li>Install a Java runtime (if not already installed).</li>
+  <li>Run <code>sndcpy.cmd</code> while your phone is connected and authorized — it will forward sound to the PC.</li>
+</ol>
 
-  <h3>4. Optional: Install sndcpy (for audio on PC)</h3>
-  <ol>
-    <li>Download the sndcpy package (a small Java wrapper) and extract it to a folder.</li>
-    <li>Ensure you have a Java runtime installed (OpenJDK or Oracle JRE) or install it if missing.</li>
-    <li>Run the provided <code>sndcpy.cmd</code> or <code>java -jar sndcpy.jar</code> (depending on package) while phone is connected and adb authorized. This forwards audio to the PC using a temporary local ADB port and a small Android helper app that runs without requiring installation.
-    </li>
-    <li>After starting sndcpy, open your PC's audio player that listens on the forwarded port (sndcpy includes instructions). Some builds automatically open the audio stream in your default media player.
-    </li>
-  </ol>
+<h3>4. Workflow to start mirroring + audio</h3>
+<ol>
+  <li>Connect phone to PC with USB cable.</li>
+  <li>Accept the “Allow USB debugging?” prompt on your phone.</li>
+  <li>(Optional) Start audio forward: <code>sndcpy</code>.</li>
+  <li>Start screen mirror:
+    <pre>scrcpy --max-size 1080 --bit-rate 8M --fullscreen</pre>
+  </li>
+</ol>
 
-  <h3>5. Workflow to start mirroring + audio</h3>
-  <ol>
-    <li>Connect phone to PC with USB data cable.</li>
-    <li>Confirm device visible: <code>adb devices</code>.</li>
-    <li>Start audio forward (optional): <code>sndcpy</code> (follow package instructions).</li>
-    <li>Start screen mirror: <code>scrcpy --max-size 1080 --bit-rate 8M --fullscreen</code>.</li>
-  </ol>
+<h2>Troubleshooting</h2>
+<ul>
+  <li><strong>No device detected?</strong> Use a proper data cable and re-enable USB debugging.</li>
+  <li><strong>Black screen or crash?</strong> Run <code>scrcpy -V debug</code> to see logs.</li>
+  <li><strong>Poor performance?</strong> Use a USB 3.0 port and lower <code>--bit-rate</code>.</li>
+  <li><strong>No audio?</strong> Make sure sndcpy is running and Java is installed.</li>
+</ul>
 
-  <h2>Troubleshooting</h2>
-  <ul>
-    <li><strong>No device shown by adb?</strong> Reconnect cable, confirm USB mode on phone is not “Charge only”, re-enable USB debugging, and accept the RSA prompt on phone.</li>
-    <li><strong>Scrcpy fails to start:</strong> Run <code>.\scrcpy.exe -V debug</code> to see logs. Make sure adb is reachable and the scrcpy folder contains the EXEs.</li>
-    <li><strong>Poor performance:</strong> Use the phone’s USB 2.0/3.0 port with a good cable; reduce <code>--max-size</code> and lower <code>--bit-rate</code>.</li>
-    <li><strong>No audio on PC:</strong> Ensure sndcpy is running and that you have Java installed. Some media players may not auto-open the forwarded stream—open the stream URL or use the included helper script.</li>
-  </ul>
+<h2>Notes & Tips</h2>
+<ul>
+  <li>Scrcpy already includes <strong>adb</strong> — no separate installation needed.</li>
+  <li>You don’t need a developer account, just enable Developer Options and USB Debugging.</li>
+  <li>Works on both Windows 10 and 11.</li>
+  <li>Use <code>Ctrl + F</code> for fullscreen, <code>Ctrl + Q</code> to quit.</li>
+</ul>
 
-  <h2>Notes & tips</h2>
-  <ul>
-    <li>If you plan to record the mirrored screen, run scrcpy with the <code>--record file.mp4</code> option.</li>
-    <li>Scrcpy mirrors whatever appears on the phone screen; DRM-protected streams may be blocked or blacked out by the app.</li>
-    <li>If you ever upgrade to Windows 11, the same steps apply. Upgrading is optional and not required to run scrcpy/sndcpy.</li>
-  </ul>
-
-  <h2>Example quick commands</h2>
-  <pre>adb devices
-// start audio (if using sndcpy)
-./sndcpy
-// start screen mirroring (example)
-./scrcpy --max-size 1080 --bit-rate 8M --fullscreen
+<pre>
+# Quick start example
+scrcpy --fullscreen --max-size 1080 --bit-rate 8M
 </pre>
 
-  <p style="margin-top:24px">Need this as a downloadable HTML file or a version with exact download links and checksums? I can add direct link targets and a small bat file to automate startup.</p>
+
 
 <h2>Usage</h2>
 ....
