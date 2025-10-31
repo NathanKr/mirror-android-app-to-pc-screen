@@ -1,8 +1,9 @@
 <h1>Project Name</h1>
-....
+Android App PC Mirroring (Partner TV)
+
 
 <h2>Project Description</h2>
-....
+This project documents a **reliable, low-latency, wired method** for mirroring any Android application onto a Windows PC display using the **Scrcpy** tool and the **Android Debug Bridge (ADB)** protocol. It provides a technical solution for streaming content when **web viewers are unavailable**. Specifically, this guide is motivated by the need to bypass the lack of a web view for the **Partner TV** Android app, enabling users to enjoy live, fast-moving content (such as a basketball game) on a larger PC monitor with minimal lag and high stability.
 
 <h2>Motivation</h2>
 I want to watch partner tv on my new 27 inch pc so how to do it.
@@ -99,24 +100,13 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 
 
 
-<h3>Troubleshooting</h3>
-<ul>
-  <li><strong>No device detected?</strong> Use a proper data cable and re-enable USB debugging.</li>
-  <li><strong>Black screen or crash?</strong> Run <code>scrcpy -V debug</code> to see logs.</li>
-  <li><strong>Poor performance?</strong> Use a USB 3.0 port and lower <code>--bit-rate</code>.</li>
-  <li><strong>No audio?</strong> Make sure sndcpy is running and Java is installed.</li>
-</ul>
-
-<h3>Notes & Tips</h3>
-<ul>
-  <li>Scrcpy already includes <strong>adb</strong> — no separate installation needed.</li>
-  <li>You don’t need a developer account, just enable Developer Options and USB Debugging.</li>
-  <li>Works on both Windows 10 and 11.</li>
-  <li>Use <code>Ctrl + F</code> for fullscreen, <code>Ctrl + Q</code> to quit.</li>
-</ul>
-
 <h2>Technologies Used</h2>
-....
+<ul>
+<li>android</li>
+<li>Adb (Android Debug Bridge) </li>
+<li>Scrcpy</li>
+<li>Screen Mirroring</li>
+</ul>
 
 <h2>Important concepts</h2>
 
@@ -182,15 +172,11 @@ THe tablet has 15% better resolution but no audio
 <img src='./figs/devices.png'/>
 
 
-<h2>open issues</h2>
+<h2>Points of interest</h2>
 <ul>
     <li>should i use cable or wifi : You should use a USB cable for the best experience, as it provides extremely low latency and a more stable connection, which is ideal for watching live sports. check <img src='./figs/cable.png'/> - exist in KSP near home</li>
     <li>should i use special cable : You should use any standard USB data cable (not a cheap "charge-only" cable) that supports the full file-sharing and adb data transfer required for debugging.</li>
    <li>do i need developer account : No, you do not need a developer account, but you must enable the Developer Options and USB Debugging settings on your Android phone.</li>
 </ul>
 
-<h2>References</h2>
-<ul>
-    <li>...</li>
-   
-</ul>
+
