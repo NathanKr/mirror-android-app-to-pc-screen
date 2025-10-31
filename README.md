@@ -98,6 +98,15 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
   </li>
 </ol>
 
+<h3>Best Practices & Tips</h3>
+<ul>
+    <li>Scrcpy already includes **adb** — no separate installation needed.</li>
+    <li>For the best experience watching live sports, make sure to use a **USB data cable** (not a charge-only cable).</li>
+    <li>For a full-screen view, press **`Ctrl + F`** and press **`Ctrl + Q`** to quit the mirror.</li>
+    <li>Keep your phone in **landscape (horizontal) mode** before starting the stream for the best monitor fit.</li>
+    <li>**Close background apps** and **plug in your charger** if streaming for long periods, as mirroring uses more battery.</li>
+    <li>The setup works on both **Windows 10 and 11**.</li>
+</ul>
 
 
 <h2>Technologies Used</h2>
@@ -110,49 +119,16 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 
 <h2>Important concepts</h2>
 
-<h3>scrpy</h3>
-
-Schema
-
-<h3>adb - android debug bridge</h3>
-
-Schema
+<h3>Scrcpy</h3>
+<p>Scrcpy (Screen Copy) is the dedicated, high-performance application that executes the screen mirroring. It works by pushing a small server program onto the Android device via ADB. This server captures the device's screen contents and uses the phone's **hardware video encoder** (H.264) to rapidly compress the video stream. This highly efficient stream is then sent through the ADB tunnel to the PC, where the Scrcpy application quickly decodes and displays it. This method ensures **minimal latency** suitable for live video.</p>
+<h3>ADB - Android Debug Bridge</h3>
+<p>ADB is the **low-level communication protocol** that creates a high-bandwidth, stable connection (a "tunnel") between your Windows PC and the Android device, usually over the USB cable. Scrcpy relies entirely on ADB to provide the dedicated pipe through which the compressed video data travels. ADB is the **backbone** that enables all PC-to-Android debugging and data transfer.</p>
 
 <img src='./figs/adb-schema.png' alt='adb schema'>
 
 The ADB Client on the Host Machine : is the command-line program (adb) or a software interface (like in Android Studio) that sends debugging and operational commands to the ADB Server.
 
-<h2>Design 1 - Scrcpy</h2>
 
-<p>Scrcpy will show your basketball game (like NBA Live Mobile, Basketball Arena, etc.) very smoothly and clearly on your PC screen.</p>
-
-<h2>Here’s what you can expect:</h2>
-
-<section>
-    <h3>🟢 What You’ll Get</h3>
-    <ul>
-    <li>🎥 Full HD quality (1080p or more)</li>
-    <li>⚡ Almost no lag with a USB cable</li>
-    <li>🎮 You’ll see the same game you play on the phone — live, real-time</li>
-    <li>🔊 Sound plays on your phone (you can use Bluetooth speakers or <code>sndcpy</code> to get sound on PC too)</li>
-    </ul>
-</section>
-
-<section>
-    <h3>🟣 Tips for best experience</h3>
-    <ul>
-    <li>Use USB cable (not Wi-Fi) → smoother motion for fast games</li>
-    <li>Press <code>Ctrl + F</code> → full screen</li>
-    <li>Keep phone horizontal (landscape) before starting the game</li>
-    <li>Close background apps</li>
-    <li>Plug in charger if playing long (mirroring uses more battery)</li>
-    </ul>
-</section>
-
-<section>
-    <h3>✅ Summary</h3>
-    <p>Yes — your basketball game will look great on PC with Scrcpy. It’s free, smooth, and has almost no delay — perfect for watching or even recording your gameplay.</p>
-</section>
 
 <h2>Demo</h2>
 
