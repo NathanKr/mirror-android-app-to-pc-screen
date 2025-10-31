@@ -17,7 +17,6 @@ I wanted to watch live Partner TV content (like basketball games) on my 27" PC m
 <li>my pc run windows 10 i might be willing to upgrade to windows 11</li>
 <li><strong>Pc setup</strong></li>
     <ul>
-        <li>Device Name: DESKTOP-P36PBLU</li>
         <li>Processor: 12th Gen Intel(R) Core(TM) i3-12100F @ 3.30 GHz</li>
         <li>Installed RAM: 16.0 GB (15.9 GB usable)</li>
         <li>Storage: <ul>
@@ -39,10 +38,6 @@ I wanted to watch live Partner TV content (like basketball games) on my 27" PC m
 <ul>
 <li>The Realme C21</li>
 <li>uses a Micro-USB charging port and is designed for 10W (5V/2A) charging.</li>
-</ul>
-<li>Sarit tablet</li>
-<ul>
-<li></li>
 </ul>
 </ul>
 
