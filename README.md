@@ -3,7 +3,7 @@ Android App PC Mirroring (Partner TV)
 
 
 <h2>Project Description</h2>
-This project documents a **reliable, low-latency, wired method** for mirroring any Android application onto a Windows PC display using the **Scrcpy** tool and the **Android Debug Bridge (ADB)** protocol. It provides a technical solution for streaming content when **web viewers are unavailable**. Specifically, this guide is motivated by the need to bypass the lack of a web view for the **Partner TV** Android app, enabling users to enjoy live, fast-moving content (such as a basketball game) on a larger PC monitor with minimal lag and high stability.
+This project documents a <strong>reliable, low-latency, wired method</strong> for mirroring any Android application onto a Windows PC display using the <strong>Scrcpy</strong> tool and the <strong>Android Debug Bridge (ADB)</strong> protocol. It provides a technical solution for streaming content when <strong>web viewers are unavailable</strong>. Specifically, this guide is motivated by the need to bypass the lack of a web view for the <strong>Partner TV</strong> Android app, enabling users to enjoy live, fast-moving content (such as a basketball game) on a larger PC monitor with minimal lag and high stability.
 
 <h2>Motivation</h2>
 I want to watch partner tv on my new 27 inch pc so how to do it.
@@ -98,15 +98,6 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
   </li>
 </ol>
 
-<h3>Best Practices & Tips</h3>
-<ul>
-    <li>Scrcpy already includes **adb** — no separate installation needed.</li>
-    <li>For the best experience watching live sports, make sure to use a **USB data cable** (not a charge-only cable).</li>
-    <li>For a full-screen view, press **`Ctrl + F`** and press **`Ctrl + Q`** to quit the mirror.</li>
-    <li>Keep your phone in **landscape (horizontal) mode** before starting the stream for the best monitor fit.</li>
-    <li>**Close background apps** and **plug in your charger** if streaming for long periods, as mirroring uses more battery.</li>
-    <li>The setup works on both **Windows 10 and 11**.</li>
-</ul>
 
 
 <h2>Technologies Used</h2>
@@ -120,9 +111,9 @@ I want to watch partner tv on my new 27 inch pc so how to do it.
 <h2>Important concepts</h2>
 
 <h3>Scrcpy</h3>
-<p>Scrcpy (Screen Copy) is the dedicated, high-performance application that executes the screen mirroring. It works by pushing a small server program onto the Android device via ADB. This server captures the device's screen contents and uses the phone's **hardware video encoder** (H.264) to rapidly compress the video stream. This highly efficient stream is then sent through the ADB tunnel to the PC, where the Scrcpy application quickly decodes and displays it. This method ensures **minimal latency** suitable for live video.</p>
+<p>Scrcpy (Screen Copy) is the dedicated, high-performance application that executes the screen mirroring. It works by pushing a small server program onto the Android device via ADB. This server captures the device's screen contents and uses the phone's <strong>hardware video encoder</strong> (H.264) to rapidly compress the video stream. This highly efficient stream is then sent through the ADB tunnel to the PC, where the Scrcpy application quickly decodes and displays it. This method ensures <strong>minimal latency</strong> suitable for live video.</p>
 <h3>ADB - Android Debug Bridge</h3>
-<p>ADB is the **low-level communication protocol** that creates a high-bandwidth, stable connection (a "tunnel") between your Windows PC and the Android device, usually over the USB cable. Scrcpy relies entirely on ADB to provide the dedicated pipe through which the compressed video data travels. ADB is the **backbone** that enables all PC-to-Android debugging and data transfer.</p>
+<p>ADB is the <strong>low-level communication protocol</strong> that creates a high-bandwidth, stable connection (a "tunnel") between your Windows PC and the Android device, usually over the USB cable. Scrcpy relies entirely on ADB to provide the dedicated pipe through which the compressed video data travels. ADB is the <strong>backbone</strong> that enables all PC-to-Android debugging and data transfer.</p>
 
 <img src='./figs/adb-schema.png' alt='adb schema'>
 
@@ -150,9 +141,11 @@ THe tablet has 15% better resolution but no audio
 
 <h2>Points of interest</h2>
 <ul>
-    <li>should i use cable or wifi : You should use a USB cable for the best experience, as it provides extremely low latency and a more stable connection, which is ideal for watching live sports. check <img src='./figs/cable.png'/> - exist in KSP near home</li>
-    <li>should i use special cable : You should use any standard USB data cable (not a cheap "charge-only" cable) that supports the full file-sharing and adb data transfer required for debugging.</li>
-   <li>do i need developer account : No, you do not need a developer account, but you must enable the Developer Options and USB Debugging settings on your Android phone.</li>
+    <li><strong>Should I use a cable or Wi-Fi?</strong> You should use a <strong>USB cable</strong> for the best experience, as it provides extremely low latency and a more stable connection, which is ideal for watching live sports</li>
+    <li><strong>Should I use a special cable?</strong> You should use any <strong>standard USB data cable</strong> (not a cheap "charge-only" cable) that supports the full file-sharing and adb data transfer required for debugging.</li>
+   <li><strong>Do I need a developer account?</strong> No, you do not need a developer account, but you must <strong>enable the Developer Options and USB Debugging</strong> settings on your Android phone.</li>
 </ul>
+
+
 
 
